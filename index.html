@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        Function.prototype.newbind = function(target){
+            target = target || window;
+            var self = this;
+            var arg = [].slice.call(arguments,1)
+            var temp = function(){};
+            var F = function(){
+                var arg_ = [].slice.call(arguments,0);
+                console.log(this instanceof temp)
+                return self.apply(this instanceof temp ? this : target,arg.concat(arg_))
+            }
+            console.log(this)
+            temp.prototype = this.prototype;
+            F.prototype = new temp();
+            return F;
+        }
+        var value = 0;
+        var obj = {
+            value:123
+        }
+        show.prototype.value = 'esc'
+        function show (name,age,sex){
+            console.log(this.value);
+            console.log(name,age);
+            return sex;
+        }
+        var newShow = show.newbind(obj,'mengfei',19)
+        newShow()       
+        // new newShow('male')
+        //  newShow('male')
+        // console.log(newShow('male'))
+
+
+        
+    </script>
+</body>
+</html>
