@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>vaildate</title>
+</head>
+<style>
+    *{margin:0;padding:0}
+    ul,li{list-style:none;}
+    form{width:300px;height:300px;margin:30px auto 0;}
+    .error{color:red;display:none}
+    .has-error{display:block}
+</style>
+<body>
+    <form id="login">
+        <ul>
+            <li>
+                <label for="username">姓名：</label>
+                <input type="text" id='username' name="username" 
+                data-require = 'true'
+                data-regex = '/^[a-zA-Z]{6,12}&/'
+                data-regex-message='* 请填写你以字母开头的6-12未字符'/>
+                <span class="error"></span>
+            </li>
+            <li>
+                <label for="email">emial：</label>
+                <input type="text" id='email' name="email" 
+                data-require='true'
+                data-require-message='* 请填写email'
+                data-regex = '/^[a-zA-Z]{6,12}&/'
+                data-regex-message='* 请填写正确的email格式'/>
+                <span class="error"></span>
+            </li>
+        </ul>
+        <input type="submit" value="提交">
+    </form>
+    <script src="https://cdn.staticfile.org/jquery/3.3.1/jquery.min.js"></script>
+    <script src="./assets/vaildator.js"></script>
+    <script>
+        $('#login').vaildator({
+        })
+    </script>
+</body>
+
+</html>
