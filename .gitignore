@@ -1,10 +1,2 @@
-.deploy_git/
 node_modules/
 dist/
-express/
-react/
-my-react/
-new-react-demo/
-react-webpack/
-crawler/
-requirejs/
